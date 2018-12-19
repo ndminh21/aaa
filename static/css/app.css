@@ -1,0 +1,55 @@
+.container {
+    width: 100% !important;
+}
+
+#topnav .navigation-menu > li.last-elements .submenu {
+    left: -15px;
+}
+
+.panel-border.panel-purple .procurement-bl .panel-heading {
+    color: rgb(255, 255, 255) !important;
+    border: none !important;
+    background-color: #7266BA;
+}
+
+.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+    z-index: 9999999999;
+}
+
+.logis-menu .badge {
+    position: absolute;
+    top: 18px;
+    right: 72px;
+}
+
+@media (max-width: 500px) {
+    .username {
+        display: none;
+    }
+}
+
+.li-noti {
+    display: none !important;
+}
+
+@media (max-width: 990px) {
+    .li-noti {
+        display: block !important;
+    }
+}
+
+.table-action-btn {
+    color: #98a6ad;
+    display: inline-block;
+    width: 28px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 28px !important;
+}
+
+#datatables input[type=checkbox] {
+    transform: scale(1.5);
+    width: 100%;
+}
+

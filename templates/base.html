@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation
+postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets
+rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow
+opacity cssanimations csscolumns cssgradients no-cssreflections csstransforms
+csstransforms3d csstransitions fontface generatedcontent video audio localstorage
+sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" style="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/images/favicon_1.ico') }}">
+    <!-- App Title -->
+    <title>Advanced Algorithm</title>
+
+    <!-- Custom box scc -->
+    <link href="{{ url_for('static', filename='assets/plugins/custombox/css/custombox.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/core.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/components.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/menu.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+
+    <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet" type="text/css" />
+
+    {% block styles %}{% endblock %}
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="{{ url_for('static', filename='assets/js/modernizr.min.js') }}"></script>
+
+</head>
+<body>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container" style="width: 95% !important; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+
+                <!-- Logo container-->
+                <div class="logo">
+                    <a class="logo"><span>UTX<i class="md md-album"></i> SELECTI<i
+                            class="md md-album"></i>N</span></a>
+                </div>
+                <!-- End Logo container-->
+
+                <div class="menu-extras">
+
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li class="dropdown navbar-c-items">
+                            <a href=""
+                                class="dropdown-toggle waves-effect waves-light profile"
+                                data-toggle="dropdown" aria-expanded="false">
+                                <span class="username" style="margin-right: 8px;">Nguyen Duy Minh</span>
+                                <img src="{{ url_for('static', filename='assets/images/users/avatar-1.png') }}"
+                                    alt="user-img" class="img-circle"> </a>
+                            <ul class="dropdown-menu">
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-cog"></span>
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/employee/type">Trường mở rộng</a></li>
+                                <li><a href="/employee/import">Import user</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="navbar-custom">
+            <div class="container" style="width: 95% !important; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu logis-menu">
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fa fa-arrow-up"></i>
+                                <span>HVF</span>
+                            </a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fa fa-arrow-down"></i>
+                                <span>LVF</span>
+                            </a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fa fa-object-group"></i>
+                                <span>Model 1</span>
+                            </a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fa fa-object-group"></i>
+                                <span>Model 2</span>
+                            </a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fa fa-modx"></i>
+                                <span>Our Propose</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- End navigation menu        -->
+                </div>
+            </div> <!-- end container -->
+        </div>
+    </header>
+    <!-- End Navigation Bar-->
+    {% block content %}{% endblock %}
+
+    <!-- jQuery  -->
+        <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/detect.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/fastclick.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.slimscroll.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.blockUI.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/waves.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/wow.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.nicescroll.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.scrollTo.min.js') }}"></script>
+
+        {% block scripts %}{% endblock %}
+        <script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.core.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/js/jquery.app.js') }}"></script>
+
+    {% block footer_scripts %}{% endblock %}
+
+</body>
+</html>

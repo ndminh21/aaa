@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block styles %}
+<link href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/css/core.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/css/components.css') }}" rel
+        ="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/css/icons.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/css/pages.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/css/responsive.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ url_for('static', filename='assets/plugins/ladda-buttons/css/ladda-themeless.min.css') }}"
+      rel="stylesheet" type="text/css">
+
+<!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+{% endblock %}
+
+{% block content %}
+<div class="wrapper" >
+    <div class="container" style="width: 95% !important; padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-12">
+                <h4 class="page-title">LIST OF TRANSACTION</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card-box">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <form role="form" id="search">
+                                <div class="form-group contact-search m-b-30">
+                                    <input id="input" class="form-control" placeholder="Search..." type="text">
+                                    <button type="submit" class="btn btn-white"><i class="fa fa-search"></i></button>
+                                </div> <!-- form-group -->
+                            </form>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a href="#custom-modal" class="btn btn-default btn-md waves-effect waves-light m-b-30"
+                               data-animation="fadein" data-plugin="custommodal" data-overlayspeed="200"
+                               data-overlaycolor="#36404a"><i class="md md-add"></i>Add New Transaction</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="btn-group pull-right">
+                                <button id="wp-update" type="button" class="ladda-button btn btn-default"
+                                        data-style="expand-right">Data Synchronization
+                                    <span class="m-l-5 ladda-spinner"></span>
+                                    <div class="ladda-progress" style="width: 0px;"></div></button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="datatables"
+                                   class="table table-striped table-bordered table-actions-bar" style="width: 100%;">
+                                <thead>
+                                <tr>
+                                    <th class='export'>ID</th>
+                                    <th class='export'>Size</th>
+                                    <th class='export'>Time</th>
+                                    <th class='export'>Value Out</th>
+                                    <th class='export'>Number of Inputs</th>
+                                    <th class='export'>Number of Outputs</th>
+                                    <th class='no-sort'>Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</div>
+<!-- Modal -->
+<div id="custom-modal" class="modal-demo">
+    <button type="button" class="close" onclick="Custombox.close();">
+        <span>×</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="custom-modal-title">Tạo mới nhân viên</h4>
+    <div class="custom-modal-text text-left">
+        <form role="form" id="user-form">
+            <div class="form-group">
+                <label for="ID">Mã nhân viên</label>
+                <input class="form-control" required="" id="ID" placeholder="Nhập mã nhân viên"
+                       type="text">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Họ và tên</label>
+                <input class="form-control" required="" id="name"
+                       placeholder="Nhập tên nhân viên" type="text">
+            </div>
+
+            <button type="submit"
+                    class="btn btn-default waves-effect waves-light">Lưu
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.bootstrap.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/buttons.bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/jszip.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/vfs_fonts.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/buttons.html5.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/buttons.print.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.fixedHeader.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.keyTable.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/responsive.bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.scroller.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.colVis.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/datatables/dataTables.fixedColumns.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/pages/datatables.init.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/select2/js/select2.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/switchery/js/switchery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/multiselect/js/jquery.multi-select.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/pages/jquery.form-advanced.init.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/custombox/js/custombox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/custombox/js/legacy.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/ladda-buttons/js/spin.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/ladda-buttons/js/ladda.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/ladda-buttons/js/ladda.jquery.min.js') }}"></script>
+{% endblock %}
+
+{% block footer_scripts %}
+<script type="text/javascript">
+    $(function () {
+        var form_data = new FormData();
+        $.ajax({
+            type: 'GET',
+            url: "{{ url_for('get_transaction') }}",
+            data: form_data,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                data = response.res_data;
+                if (response.msg == "success") {
+                    datatable.clear().draw();
+                    datatable.rows.add(response.data).draw()
+                }
+            }
+        });
+    }());
+</script>
+{% endblock %}

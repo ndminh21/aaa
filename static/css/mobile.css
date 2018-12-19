@@ -1,0 +1,274 @@
+/*
+* @Author: ha.h
+* @Date:   2017-04-18 10:02:16
+* @Last Modified by:   halink0803
+* @Last Modified time: 2017-05-29 17:37:56
+*/
+
+/*******************************
+* Does not work properly if "in" is added after "collapse".
+* Get free snippets on bootpen.com
+*******************************/
+.container {
+    padding: 0;
+}
+.panel-group .panel {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #EEEEEE;
+}
+
+.panel-default > .panel-heading {
+    padding: 0;
+    border-radius: 0;
+    color: #212121;
+    background-color: #FAFAFA;
+    border-color: #EEEEEE;
+}
+
+.panel-title {
+    font-size: 14px;
+    }
+
+    .panel-title > a {
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+    .more-less {
+        float: right;
+        color: #212121;
+    }
+
+    .panel-default > .panel-heading + .panel-collapse > .panel-body {
+        border-top-color: #EEEEEE;
+    }
+    .modal-dialog {
+        margin-top: 200px;
+    }
+
+    .main-content {
+        padding: 0;
+    }
+
+    .wrapper {
+        padding-top: 0;
+    }
+
+    .app-search {
+        position: relative;
+        margin: 10px 10px 0 10px;
+        border-radius: 0;
+    }
+
+    .mobile-header {
+        padding: 10px 0;
+        background: #2FA6AA;
+    }
+
+    .mobile-header h1,
+    .mobile-header h2,
+    .mobile-header h3,
+    .mobile-header h4 {
+        color: white;
+        margin: 0 auto;
+    }
+
+    .app-search button {
+        position: absolute;
+        top: 6px;
+        right: 10px;
+        color: #c4c4cd;
+        border: none;
+        background: transparent;
+    }
+
+    .app-search input {
+        border-radius: 20px;
+    }
+
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .nav.nav-tabs + .tab-content {
+        padding: 0;
+    }
+
+    .nav-tabs li a {
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+    .nav-tabs li a p {
+        margin-bottom: 0;
+    }
+    .nav-tabs li a i {
+        font-size: 25px;
+        margin-top: 5px;
+    }
+
+    .menu-tabs {
+        overflow: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .menu-tabs li {
+        display: inline-block;
+        float: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;  /* remove scrollbar space */
+        background: transparent;  /* optional: just make scrollbar invisible */
+        height: 0px;
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover,
+    .tabs-vertical > li.active > a,
+    .tabs-vertical > li.active > a:focus,
+    .tabs-vertical > li.active > a:hover {
+        color: #2FA6AA !important;
+    }
+
+    .panel-group .panel+.panel {
+        margin-top: 0;
+    }
+
+    .mobile-notifications {
+        -webkit-transform: translate(-10px, -10px);
+        -ms-transform: translate(-10px, -10px);
+        -o-transform: translate(-10px, -10px);
+        transform: translate(-10px, -10px);
+    }
+
+    .nav.nav-tabs > li > a, .nav.tabs-vertical > li > a {
+        // padding: 0 4px;
+        line-height: 30px;
+    }
+
+    .ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
+        z-index: 99999;
+    }
+
+    .button-list button {
+        height: 50px;
+    }
+
+    @media(max-height: 300px) {
+        .modal-dialog {
+            margin-top: 50px;
+        }
+    }
+    .dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+    }
+
+    /**  LOADING EFFECT  */
+    #loading {
+        background: rgba(212, 212, 212, 0.1);
+        z-index: 9;
+        height: 100%;
+        left: 0;
+        margin: auto;
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    .bokeh {
+        border: 0.01em solid rgba(150, 150, 150, 0.1);
+        border-radius: 50%;
+        font-size: 100px;
+        height: 1em;
+        list-style: outside none none;
+        margin: 0 auto;
+        position: relative;
+        top: 35%;
+        width: 1em;
+        z-index: 2147483647;
+    }
+    .bokeh li {
+        border-radius: 50%;
+        height: 0.2em;
+        position: absolute;
+        width: 0.2em;
+    }
+    .bokeh li:nth-child(1) {
+        animation: 1.13s linear 0s normal none infinite running rota, 3.67s ease-in-out 0s alternate none infinite running opa;
+        background: #00c176 none repeat scroll 0 0;
+        left: 50%;
+        margin: 0 0 0 -0.1em;
+        top: 0;
+        transform-origin: 50% 250% 0;
+    }
+    .bokeh li:nth-child(2) {
+        animation: 1.86s linear 0s normal none infinite running rota, 4.29s ease-in-out 0s alternate none infinite running opa;
+        background: #ff003c none repeat scroll 0 0;
+        margin: -0.1em 0 0;
+        right: 0;
+        top: 50%;
+        transform-origin: -150% 50% 0;
+    }
+    .bokeh li:nth-child(3) {
+        animation: 1.45s linear 0s normal none infinite running rota, 5.12s ease-in-out 0s alternate none infinite running opa;
+        background: #fabe28 none repeat scroll 0 0;
+        bottom: 0;
+        left: 50%;
+        margin: 0 0 0 -0.1em;
+        transform-origin: 50% -150% 0;
+    }
+    .bokeh li:nth-child(4) {
+        animation: 1.72s linear 0s normal none infinite running rota, 5.25s ease-in-out 0s alternate none infinite running opa;
+        background: #88c100 none repeat scroll 0 0;
+        margin: -0.1em 0 0;
+        top: 50%;
+        transform-origin: 250% 50% 0;
+    }
+    @keyframes opa {
+        12% {
+            opacity: 0.8;
+        }
+        19.5% {
+            opacity: 0.88;
+        }
+        37.2% {
+            opacity: 0.64;
+        }
+        40.5% {
+            opacity: 0.52;
+        }
+        52.7% {
+            opacity: 0.69;
+        }
+        60.2% {
+            opacity: 0.6;
+        }
+        66.6% {
+            opacity: 0.52;
+        }
+        70% {
+            opacity: 0.63;
+        }
+        79.9% {
+            opacity: 0.6;
+        }
+        84.2% {
+            opacity: 0.75;
+        }
+        91% {
+            opacity: 0.87;
+        }
+    }
+
+    @keyframes rota {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
