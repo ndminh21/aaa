@@ -12,18 +12,19 @@ Framework: Flask
 Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com)
 
 ### Các công việc cần thực hiện
--[x] Tìm hiểu ảnh hưởng của UTXOs đến các transaction
--[ ] Cách tính kích thước của một transaction
--[ ] Tìm hiểu transaction pool của BTC và các vấn đề đang gặp phải 
--[ ] Chuyển Raw Data thành SQL data
--[ ] Đề xuất giải thuật UTXOs Selection
--[ ] Hiện thực giải thuật đề xuất
--[ ] Hiện thực các giải thuật so sánh. Cụ thể: HVF, LVF, Model1, Model2 (Paper)
--[ ] Kiểm thử trên các tập dữ liệu
--[ ] Đánh giá, so sánh kết quả
+- [x] Tìm hiểu ảnh hưởng của UTXOs đến các transaction
+- [ ] Cách tính kích thước của một transaction
+- [ ] Tìm hiểu transaction pool của BTC và các vấn đề đang gặp phải 
+- [ ] Chuyển Raw Data thành SQL data
+- [ ] Đề xuất giải thuật UTXOs Selection
+- [ ] Hiện thực giải thuật đề xuất
+- [ ] Hiện thực các giải thuật so sánh. Cụ thể: HVF, LVF, Model1, Model2 (Paper)
+- [ ] Kiểm thử trên các tập dữ liệu
+- [ ] Đánh giá, so sánh kết quả
 
 ### Nguồn dữ liệu
 Giai đoạn I: Sử dụng các tập dữ liệu do giảng viên cung cấp
+
 Giai đoạn II: Dựng một con Full Node để lấy data
 
 ### Quá trình thực hiện
