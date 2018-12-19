@@ -3,11 +3,11 @@
 ### Đặc tả project
 Nhiệm vụ chính của project là hiện thực một giải pháp để chọn lựa các UTXOs cho các transaction nhằm tối ưu một hoặc nhiều các tiêu chí và giải quyết các vấn đề hiện tại mà các transaction pool và minner đang gặp phải.
 
-Project được sử dụng cho mục đích học tập ở trường Đại học Bách Khoa
+Project được sử dụng cho mục đích học tập ở trường Đại học Bách Khoa.
 
 Ngôn ngữ sử dụng: **Python** (3.6)
 
-Framework: Flask 
+Framework: **Flask** 
 
 Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com)
 
@@ -18,7 +18,7 @@ Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com)
 - [ ] Chuyển Raw Data thành SQL data
 - [ ] Đề xuất giải thuật UTXOs Selection
 - [ ] Hiện thực giải thuật đề xuất
-- [ ] Hiện thực các giải thuật so sánh. Cụ thể: HVF, LVF, Model1, Model2 (Paper)
+- [ ] Hiện thực các giải thuật so sánh. Cụ thể: `HVF`, `LVF`, `Model1` (Paper), `Model2` (Paper)
 - [ ] Kiểm thử trên các tập dữ liệu
 - [ ] Đánh giá, so sánh kết quả
 
@@ -28,6 +28,12 @@ Giai đoạn I: Sử dụng các tập dữ liệu do giảng viên cung cấp
 Giai đoạn II: Dựng một con Full Node để lấy data
 
 ### Quá trình thực hiện
+Đang được cập nhật....
 
 ### Kết qủa thực nghiệm
+Đang được cập nhật...
+
+### License
+Code released under [The HCMUT license] 
+Copyright 2018-2019
 
