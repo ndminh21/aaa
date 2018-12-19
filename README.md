@@ -11,7 +11,7 @@ Ngôn ngữ sử dụng: **Python** (3.6)
 
 Framework: **Flask** 
 
-Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com)
+Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com), **Huỳnh Quang Bảo**, **Nguyễn Thành Công**
 
 ## Các công việc cần thực hiện
 - [x] Tìm hiểu ảnh hưởng của UTXOs đến các transaction
