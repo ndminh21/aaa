@@ -1,5 +1,7 @@
 # Assignment Advance Algorithm (AAA)
 
+<img src="https://upload.wikimedia.org/wikipedia/vi/c/cd/Logo-hcmut.svg" width="50">
+
 ## Đặc tả project
 Nhiệm vụ chính của project là hiện thực một giải pháp để chọn lựa các UTXOs cho các transaction nhằm tối ưu một hoặc nhiều các tiêu chí và giải quyết các vấn đề hiện tại mà các transaction pool và minner đang gặp phải.
 
@@ -51,5 +53,6 @@ Link: Đang được cập nhật...
 
 ## License
 Code released under [The HCMUT license] 
+
 Copyright 2018-2019
 
