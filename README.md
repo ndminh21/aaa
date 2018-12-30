@@ -15,9 +15,9 @@ Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com), **Huỳnh Quang
 
 ## Các công việc cần thực hiện
 - [x] Tìm hiểu ảnh hưởng của UTXOs đến các transaction
-- [ ] Cách tính kích thước của một transaction
-- [ ] Tìm hiểu transaction pool của BTC và các vấn đề đang gặp phải 
-- [ ] Chuyển Raw Data thành SQL data
+- [x] Cách tính kích thước của một transaction
+- [x] Tìm hiểu transaction pool của BTC và các vấn đề đang gặp phải 
+- [x] Chuyển Raw Data thành SQL data
 - [ ] Đề xuất giải thuật UTXOs Selection
 - [ ] Hiện thực giải thuật đề xuất
 - [ ] Hiện thực các giải thuật so sánh. Cụ thể: `HVF`, `LVF`, `Model1` (Paper), `Model2` (Paper)
