@@ -52,6 +52,39 @@ Link: Đang được cập nhật...
 - Phân tích dữ liệu thành các đối tượng như sau: `transaction`, `input`, `output`, `utxo`
 ### Bước 2: Mô hình hoá
 - Công cụ hỗ trợ: `glpk` 
+- Các thông số:
+
+| Tên                                  | Mô tả                                   | Ghi chú  |
+| ------------------------------------ |:---------------------------------------:| -----:|
+| `TRANS_MAX_SIZE`                     | Kích thước tối đa của một transaction   |       |
+| `FEE_RATE`                           | Hệ số tính phí của một transaction      |       |
+| `DUST_THRESHOLD`                     |                                         |       |
+| `EPSILON`                            |                                         |       |
+| `TRANS_INPUTS_VALUE{UTXO}`           |                                         |       |
+| `TRANS_INPUTS_SIZE`                  |                                         |       |
+| `TRANS_OUTPUTS_VALUE{TRANS_OUTPUTS}` |                                         |       |
+| `TRANS_OUTPUTS_SIZE{TRANS_OUTPUTS}`  |                                         |       |
+| `BETA`                               |                                         |       |
+
+- Tính các giá trị liên quan
+
+| Tên                                | Cách tính                                   |
+| ---------------------------------- |:-------------------------------------------:|
+| Sum of choosen UTXO value          | `var sum_inputs_value sum {input in UTXO} TRANS_INPUTS_VALUE[input] * x[input];`     |
+| Sum of outputs value               | `var sum_outputs_value sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output];`   |
+| Sum of outputs size                | `var sum_outputs_size = sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output];`   |
+| Change value                       | `var change_value = sum_inputs_value - sum_outputs_value;`                           |
+| Change size                        | `var change_size = if change_value > EPSILON then BETA else 0;`                      |
+| Transaction size                   | `var trans_size sum {input in UTXO} TRANS_INPUTS_SIZE[input] * x[input] + sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output] + change_size;`|
+
+- Các ràng buộc:
+
+| Ràng buộc                          | Mô tả                                   | 
+| ---------------------------------- |:---------------------------------------:| 
+| `s.t. max_size: trans_size <= TRANS_MAX_SIZE;`| A transaction size may not exceed maximum block data size  |
+| `s.t. sufficient_consuming: sum {input in UTXO} TRANS_INPUTS_VALUE[input] * x[input] = sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output] + FEE_RATE * trans_size + change_size;`| A transaction must have sufficient value for consuming |
+| `s.t. dust_threshold_on_output: sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output] >= DUST_THRESHOLD;`|All the transaction outputs must be higher than the dust threshold to certain that this transaction is relayed to the network and confirmed  |
+|`s.t. change_value_size_relation: change_size <= floor(change_value/EPSILON) * BETA;`|The relation between change output value zv and its size zs is defined as follow|
 
 ### Bước 3: Đề xuất giải thuật và cải tiến
 - Đang được cập nhật....
