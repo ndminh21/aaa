@@ -1,4 +1,4 @@
-# Assignment Advance Algorithm (AAA)
+# Advance Algorithm Assignment (AAA)
 
 <img src="https://upload.wikimedia.org/wikipedia/vi/c/cd/Logo-hcmut.svg" width="50">
 
