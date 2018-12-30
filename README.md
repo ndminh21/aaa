@@ -86,6 +86,10 @@ Link: Đang được cập nhật...
 | `s.t. dust_threshold_on_output: sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output] >= DUST_THRESHOLD;`|All the transaction outputs must be higher than the dust threshold to certain that this transaction is relayed to the network and confirmed  |
 |`s.t. change_value_size_relation: change_size <= floor(change_value/EPSILON) * BETA;`|The relation between change output value zv and its size zs is defined as follow|
 
+- Hàm mục tiêu:
+`minimize y: sum {input in UTXO} TRANS_INPUTS_SIZE[input] * x[input] +
+    sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output] + change_size;`
+
 ### Bước 3: Đề xuất giải thuật và cải tiến
 - Đang được cập nhật....
 
