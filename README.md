@@ -91,6 +91,8 @@ Link: Đang được cập nhật...
     sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output] + change_size;`
 
 ### Bước 3: Hiện thực mô hình hoá
+- Kích thước của một utxo sẽ là `148 bytes`
+- Kích thước của một vout sẽ là `34 bytes`
 ```
 # Set of utxo
 set UTXO;
