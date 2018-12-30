@@ -46,10 +46,18 @@ Tác giả: **Nguyễn Duy Minh** (nguyenduyminh2111@gmail.com)
 Link: Đang được cập nhật...
 
 ## Quá trình thực hiện
-Đang được cập nhật....
+### Bước 1: Chuyển dữ liệu thô về dạng dữ liệu có quan hệ
+- Các file raw data được cung cấp có dạng `*.json` và `*.txt`
+- Chuyển raw data về dạng dữ liệu có quan hệ. DBMS sử dụng là `mysql`
+- Phân tích dữ liệu thành các đối tượng như sau: `transaction`, `input`, `output`, `utxo`
+### Bước 2: Mô hình hoá
+- Công cụ hỗ trợ: `glpk` 
+
+### Bước 3: Đề xuất giải thuật và cải tiến
+- Đang được cập nhật....
 
 ## Kết qủa thực nghiệm
-Đang được cập nhật...
+- Đang được cập nhật...
 
 ## License
 Code released under [The HCMUT license] 
