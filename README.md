@@ -50,7 +50,7 @@ Link: Đang được cập nhật...
 - Các file raw data được cung cấp có dạng `*.json` và `*.txt`
 - Chuyển raw data về dạng dữ liệu có quan hệ. DBMS sử dụng là `mysql`
 - Phân tích dữ liệu thành các đối tượng như sau: `transaction`, `input`, `output`, `utxo`
-### Bước 2: Mô hình hoá
+### Bước 2: Mô tả quá trình mô hình hoá
 - Công cụ hỗ trợ: `glpk` 
 - Các thông số:
 
@@ -90,7 +90,80 @@ Link: Đang được cập nhật...
 `minimize y: sum {input in UTXO} TRANS_INPUTS_SIZE[input] * x[input] +
     sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output] + change_size;`
 
-### Bước 3: Đề xuất giải thuật và cải tiến
+### Bước 3: Hiện thực mô hình hoá
+```
+# Set of utxo
+set UTXO;
+
+# Set of transactions output
+set TRANS_OUTPUTS;
+
+###### Params  and Variables######
+# Maximum size of a transaction
+param TRANS_MAX_SIZE;
+# Fee rate
+param FEE_RATE;
+# DUST THRESHOLD
+param DUST_THRESHOLD;
+# minimum of change output that is set to avoid creating a very small output
+param EPSILON;
+# utxo values
+param TRANS_INPUTS_VALUE{UTXO};
+# transaction inputs size, which inputs choosen from UTXO set
+param TRANS_INPUTS_SIZE;
+# output values
+param TRANS_OUTPUTS_VALUE{TRANS_OUTPUTS};
+# output size
+param TRANS_OUTPUTS_SIZE{TRANS_OUTPUTS};
+# Beta
+param BETA;
+
+# Decision variable (binary, indexed by set of utxo)
+var x{UTXO}, binary;
+
+# Sum of choosen UTXO value
+var sum_inputs_value sum {input in UTXO} TRANS_INPUTS_VALUE[input] * x[input];
+# Sum of outputs value
+var sum_outputs_value sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output];
+# Sum of outputs size
+var sum_outputs_size = sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output];
+
+# Change value
+var change_value = sum_inputs_value - sum_outputs_value;
+# Change size
+var change_size = if change_value > EPSILON then BETA else 0;
+
+# Transaction size
+var trans_size sum {input in UTXO} TRANS_INPUTS_SIZE[input] * x[input] +
+    sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output] + change_size;
+
+# Ojective
+minimize y: sum {input in UTXO} TRANS_INPUTS_SIZE[input] * x[input] +
+    sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_SIZE[output] + change_size;
+
+###### Constraints ######
+
+# A transaction size may not exceed maximum block data size
+s.t. max_size: trans_size <= TRANS_MAX_SIZE;
+
+# A transaction must have sufficient value for consuming.
+s.t. sufficient_consuming: sum {input in UTXO} TRANS_INPUTS_VALUE[input] * x[input] = 
+    sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output] + FEE_RATE * trans_size + change_size;
+
+# All the transaction outputs must be higher than the dust
+# threshold to certain that this transaction is relayed to the
+# network and confirmed
+s.t. dust_threshold_on_output: sum {output in TRANS_OUTPUTS} TRANS_OUTPUTS_VALUE[output] >= DUST_THRESHOLD;
+
+# The relation between change output value zv and its size
+# zs is defined as follow
+s.t. change_value_size_relation: change_size <= floor(change_value/EPSILON) * BETA;
+
+solve;
+
+```
+
+### Bước 4: Đề xuất giải thuật và cải tiến
 - Đang được cập nhật....
 
 ## Kết qủa thực nghiệm
