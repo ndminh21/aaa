@@ -15,6 +15,9 @@ param DUST_THRESHOLD;
 param EPSILON;
 # utxo values
 param TRANS_INPUTS_VALUE{UTXO};
+
+param TRANS_INPUTS_ADDR{UTXO}, symbolic;
+
 # transaction inputs size, which inputs choosen from UTXO set
 param TRANS_INPUTS_SIZE{(txid, transid, vout) in UTXO}:=148;
 # output values
@@ -27,9 +30,11 @@ param BETA;
 # Import utxo
 table utxo IN 
     'iODBC' 'DSN=aaa;UID=root;PWD=emerald'
-    'SELECT txid, trans_id, vout, value'
-    ' FROM utxo WHERE trans_id="a70d0a93348f79039897bbab6ff415b8cf46e75446b71953a363b3468d5ae03d"':
-    UTXO <- [txid, trans_id, vout], TRANS_INPUTS_VALUE ~ value;
+    'SELECT txid, trans_id, vout, value, input_addr'
+    ' FROM utxo WHERE trans_id in '
+    '("a70d0a93348f79039897bbab6ff415b8cf46e75446b71953a363b3468d5ae03d",'
+    '"b7ecb102f8ed4a6789a384f2434cab3a625c6e3e7b917527026306c63eed195f")':
+    UTXO <- [txid, trans_id, vout], TRANS_INPUTS_VALUE ~ value, TRANS_INPUTS_ADDR ~ input_addr;
 
 # Import output transaction
 table output IN
@@ -92,14 +97,32 @@ s.t. dust_threshold_on_output: sum {(txid, n) in TRANS_OUTPUTS} TRANS_OUTPUTS_VA
 # s.t. change_value_size_relation: change_size <= floor(change_value/EPSILON) * BETA;
 #
 
+display UTXO;
+
 solve;
+
+table res_utxos {(txid, transid, vout) in UTXO: x[txid, transid, vout].val * 2 > 1}  OUT
+    'iODBC' 'DSN=aaa;UID=root;PWD=emerald'
+    ' INSERT INTO res_utxos '
+    ' (txid, value, vout, input_addr, trans_id) '
+    ' VALUES (?,?,?,?,?)' :
+    txid, TRANS_INPUTS_VALUE[txid, transid, vout], vout, TRANS_INPUTS_ADDR[txid, transid, vout], transid;
+
+table res_trans {(txid, n) in TRANS_OUTPUTS} OUT
+    'iODBC' 'DSN=aaa;UID=root;PWD=emerald'
+    ' INSERT INTO res_trans '
+    ' (trans_id, size) '
+    ' VALUES (?,?)' :
+    txid, y;
+
 printf '#########################################################################\n';
 printf 'All Done!!!\n';
 printf '#########################################################################\n';
 
 for {(txid, transid, vout) in UTXO: x[txid, transid, vout].val * 2 > 1}
 {
-    printf "%s-%s-%s\n", txid, transid, vout;
+    # curTx = txid
+    printf "%s-%s-%d\n", txid, transid, vout;
 }
 
 # display x;
